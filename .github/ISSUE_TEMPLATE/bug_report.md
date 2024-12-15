@@ -1,6 +1,8 @@
-
+---
 name: Bug Report
 about: Laporkan bug untuk membantu kami meningkatkan proyek ini
+---
+
 ---
 
 ## Bug Description
