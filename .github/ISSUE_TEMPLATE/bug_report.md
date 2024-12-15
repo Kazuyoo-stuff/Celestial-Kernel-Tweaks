@@ -1,7 +1,4 @@
 ---
-name: Bug Report
-about: Report bugs to help us improve this project.
----
 
 ## Bug Description
 Briefly describe the problem.
