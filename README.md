@@ -1,6 +1,6 @@
 ---
 
-![LOGO](https://github.com/Kazuyoo-stuff/Celestial-Thermals/blob/d979d3c611efced8568897111801cd470506b127/logo.jpg)
+![LOGO](https://github.com/Kazuyoo-stuff/Celestial-Kernel-Tweaks/blob/76cf15ba9f0545f0da483f1136d4dcc799a7a883/banner.jpg)
 
 Advanced Kernel Tweaker for Android Devices
 
