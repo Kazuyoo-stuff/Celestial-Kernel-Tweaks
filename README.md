@@ -14,20 +14,27 @@ Allows to Improve device Performance and efficiency by Adjusting Kernel Settings
 ## Features
 
 ```
-- Detect thermal in desc
-- Disable limit gpu freq
-- Disable cpu hotplug
-- Disable msm_thermal
-- Disable thermal zones
-- Disable thermal service
-- Disable other thermal
-- Remove cache thermal
-- Stops and kills processes thermal binaries
-- Reset init.svc.*thermal*
-- Clearing pid thermal
-- Stop any thermal processes found
-- Make all thermal related files inaccessible
-- Disable I/O statistics accounting
+- enable ro.config.low_ram for 2gb ram
+- Fetch the available governors from the CPU
+- CPU Governor settings for LITTLE & BIG cores
+- sched period | vmruntime | lower latency
+- migration frequency (ns)
+- Upper and lower limits for CPU utility settings
+- Reduce scheduler migration time to improve real-time latency
+- Perf event processing timeout (in percentage of CPU)
+- Always allow sched boosting on top-app tasks
+- Disable scheduler statistics to reduce overhead
+- Controlling kernel tendency to use swap
+- Clearing the dentry and inode cache
+- Controls logging of disk I/O activity
+- Enable TCP low latency mode | disable tcp timestamps
+- Set up for I/O
+- Enable dynamic fsync
+- Disable Printk
+- Change kernel mode to HMP Mode
+- Enable gpu boost in kernel (2)
+- Disable Kernel Panic
+- and more additional settings in kernel
 ```
 
 ---
