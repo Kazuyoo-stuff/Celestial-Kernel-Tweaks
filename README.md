@@ -52,7 +52,9 @@ Please report compatibility for other devices.
 
 ## Contributing
 
-@Bias_khaliq for source & other tweak
+- tytydraco & another_person2 & reljawa
+
+- SutoLiu & Matt & helloklf
 
 ---
 
