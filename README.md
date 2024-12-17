@@ -14,7 +14,6 @@ Allows to Improve device Performance and efficiency by Adjusting Kernel Settings
 ## Features
 
 ```
-- enable ro.config.low_ram for 2gb ram
 - Fetch the available governors from the CPU
 - CPU Governor settings for LITTLE & BIG cores
 - sched period | vmruntime | lower latency
@@ -33,7 +32,8 @@ Allows to Improve device Performance and efficiency by Adjusting Kernel Settings
 - Disable Printk
 - Change kernel mode to HMP Mode
 - Enable gpu boost in kernel (2)
-- Disable Kernel Panic
+- Disable Kernel Panic off
+- kernel debug sched features "NEXT_BUDDY" "TTWU_QUEUE"
 - and more additional settings in kernel
 ```
 
