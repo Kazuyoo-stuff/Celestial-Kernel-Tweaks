@@ -29,12 +29,6 @@
   end () {
     su -lp 2000 -c "cmd notification post -S bigtext -t 'Celestial-Kernel-Tweak🛸' tag 'Status : Running ^-^'" >/dev/null 2>&1
   }
-
-# Get total RAM in MB
-   TOTAL_RAM=$(free -m | awk '/^Mem:/{print $2}')
-
-# Low RAM threshold (adjust as needed)
-   LOW_RAM_THRESHOLD=2048  # 2GB in MB
     
 # Duration in nanoseconds of one scheduling period
    SCHED_PERIOD="$((4 * 1000 * 1000))"
@@ -82,15 +76,6 @@ write () {
     echo $(( (min_freq + max_freq) / 2 ))
  }
 
-# Check if RAM is below the threshold
-  if [[ "$TOTAL_RAM" -le "$LOW_RAM_THRESHOLD" ]]; then
-    # Enable low RAM mode
-    resetprop ro.config.low_ram true
-    echo "Low RAM mode enabled (ro.config.low_ram set to true)."
-  else
-    echo "Device has more than 2GB RAM, no changes made."
-  fi
-  
 # Loop over each CPU in the system
   for cpu in /sys/devices/system/cpu/cpu*/cpufreq; do
 	# Fetch the available governors from the CPU
@@ -106,7 +91,7 @@ write () {
 	done
   done
   
-# CPU Governor settings for LITTLE cores (cpu0-3)
+# CPU Governor settings for LITTLE cores (cpu0-3) (thx to @Bias_khaliq)
   for cpu in /sys/devices/system/cpu/cpu[0-3]; do
     min_freq=$(cat $cpu/cpufreq/cpuinfo_min_freq)
     max_freq=$(cat $cpu/cpufreq/cpuinfo_max_freq)
@@ -120,7 +105,7 @@ write () {
      write $cpu/cpufreq/scaling_max_freq "$max_freq"
   done
   
-# CPU Governor settings for big cores (cpu4-7)
+# CPU Governor settings for big cores (cpu4-7) (thx to @Bias_khaliq)
   for cpu in /sys/devices/system/cpu/cpu[4-7]; do
     min_freq=$(cat $cpu/cpufreq/cpuinfo_min_freq)
     max_freq=$(cat $cpu/cpufreq/cpuinfo_max_freq)
@@ -239,11 +224,11 @@ write () {
 # Enable TCP low latency mode
   write /proc/sys/net/ipv4/tcp_low_latency "1"
 
-# Set up for I/O
+# Set up for I/O thx to (@tytydraco (ghitub))
  for queue in /sys/block/*/queue; do
 	# Choose the first governor available
 	avail_scheds="$(cat "$queue/scheduler")"
-	for sched in cfq mq-deadline deadline none; do
+	for sched in mq-deadline deadline none; do
 		if [[ "$avail_scheds" == *"$sched"* ]]; then
 			write "$queue/scheduler" "$sched"
 			break
@@ -289,10 +274,15 @@ write () {
   write /proc/sys/kernel/printk_devkmsg "off"
   write /sys/kernel/printk_mode/printk_mode "0"
   
-# Enable power efficiency
-  if [ -d "/sys/module/workqueue/" ]; then
-    write /sys/module/workqueue/parameters/power_efficient "1"
-  fi
+# Fix Kernel Panic (thx to @hirauki)
+  write /proc/sys/kernel/panic "0"
+  write /proc/sys/kernel/panic_on_oops "0"
+  write /proc/sys/kernel/panic_on_warn "0"
+  write /proc/sys/kernel/panic_on_rcu_stall "0"
+  write /sys/module/kernel/parameters/panic "0"
+  write /sys/module/kernel/parameters/panic_on_warn "0"
+  write /sys/module/kernel/parameters/pause_on_oops "0"
+  write /sys/module/kernel/panic_on_rcu_stall "0"
    
 # Change kernel mode to HMP Mode
   if [ -d "/sys/devices/system/cpu/eas/" ]; then
@@ -312,12 +302,8 @@ write () {
 	write /sys/kernel/debug/sched_features "TTWU_QUEUE"
   fi
   
-# Kernel Panic Off & additional settings
-  sysctl -w kernel.panic=0
-  sysctl -w vm.panic_on_oom=0
-  sysctl -w kernel.panic_on_oops=0
+# additional settings
   sysctl -w kernel.sched_util_clamp_min_rt_default=0
-  sysctl -w kernel.sched_util_clamp_min=128
      
 # cleaning
   write /proc/sys/vm/drop_caches "3"
