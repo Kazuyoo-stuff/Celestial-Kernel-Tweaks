@@ -41,7 +41,7 @@ Allows to Improve device Performance and efficiency by Adjusting Kernel Settings
 
 ## Screenshot
 
-![LOGO]()
+![LOGO](https://github.com/Kazuyoo-stuff/Celestial-Kernel-Tweaks/blob/1022e01df113f64076a0678e98e5fad18b306a67/media/ss1.jpg) ![LOGO]()
 
 ---
 
