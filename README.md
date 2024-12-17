@@ -61,7 +61,7 @@ Please report compatibility for other devices.
 
 - tytydraco & another_person2 & reljawa
 
-- SutoLiu & Matt & helloklf
+- SutoLiu & Matt & helloklf & hirauki
 
 ---
 
