@@ -64,3 +64,7 @@ Please report compatibility for other devices.
 - @NotZeetaa & @hirauki
 
 ---
+
+## Donation
+
+- [SociaBuzz](https://sociabuzz.com/dikyganteng_/tribe)
