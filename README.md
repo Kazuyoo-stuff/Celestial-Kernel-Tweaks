@@ -1,6 +1,6 @@
 ---
 
-![LOGO](https://github.com/Kazuyoo-stuff/Celestial-Kernel-Tweaks/blob/76cf15ba9f0545f0da483f1136d4dcc799a7a883/banner.jpg)
+![LOGO](https://github.com/Kazuyoo-stuff/Celestial-Kernel-Tweaks/blob/3c7b097600c1ebb2c4961ddacd3e5511783a584c/media/banner.jpg)
 
 Advanced Kernel Tweaker for Android Devices
 
@@ -39,9 +39,9 @@ Allows to Improve device Performance and efficiency by Adjusting Kernel Settings
 
 ---
 
-## Installation
+## Screenshot
 
-- Flash In Magisk Or Ksu
+![LOGO]()
 
 ---
 
@@ -64,11 +64,3 @@ Please report compatibility for other devices.
 - @NotZeetaa & @hirauki
 
 ---
-
-## License
-
-Lisensi: [MIT License](https://opensource.org/license/MIT)
-
-
----
-
