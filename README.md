@@ -57,11 +57,11 @@ Please report compatibility for other devices.
 
 ---
 
-## Contributing
+## Thanks To
 
-- tytydraco & another_person2 & reljawa
+- @tytydraco & @another_person2 & @reljawa
 
-- SutoLiu & Matt & helloklf & hirauki
+- @NotZeetaa & @hirauki
 
 ---
 
