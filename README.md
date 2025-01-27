@@ -14,15 +14,14 @@ Allows to Improve device Performance and efficiency by Adjusting Kernel Settings
 ## Features
 
 ```
-- Apply governor specific tunables for interactive (thx to @tytydraco (ghitub))
-- Specifies the time window size (in nanoseconds) for CPU time sharing calculations.
-- sets the average duration (time averaging period) in milliseconds
-- gives an initial value of the task load based on a specified percentage
-- prevent excessive memory consumption by perf events
-- Scheduler boosting allows temporary priority increases
+- Apply governor specific tunables for - Apply governor specific tunables for interactive (thx to @tytydraco (ghitub))
+- sets the sched_shares_window_ns for CPU time sharing calculations.
+- sets the sched_time_avg_ms for task load tracking calculation by the scheduler.
+- sets the sched_walt_init_task_load_pct for gives an initial value of the task load based on a specified percentage
+- sets the perf_event_mlock_kb for prevent excessive memory consumption by perf events
+- sets the sched_boost for Scheduler boosting allows temporary priority increases
 - Disable WALT for CPU & task utilization
 - Always allow sched boosting on top-app tasks
-- vm swappines 100%
 - Fetch the available governors from the CPU
 - CPU Governor settings for LITTLE & BIG cores
 - sched period | vmruntime | lower latency
@@ -37,6 +36,8 @@ Allows to Improve device Performance and efficiency by Adjusting Kernel Settings
 - Controls logging of disk I/O activity
 - Enable TCP low latency mode | disable tcp timestamps
 - Set up for I/O
+- vm swappines 100%
+- Disable CFS boost
 - Enable dynamic fsync
 - Disable all kernel panic
 - Disable Printk
