@@ -102,17 +102,14 @@ done
 # Reduce the maximum scheduling period for lower latency
   write_value "$KERNEL_PATH/sched_latency_ns" "$SCHED_PERIOD"
 
-# Real-time time period
-  write_value "$KERNEL_PATH/sched_rt_period_us" "1000000"
-
 # Reduce task migration frequency (ns)
   write_value "$KERNEL_PATH/sched_migration_cost_ns" "500000"
 
 # Period for real-time duty cycle (us)
   write_value "$KERNEL_PATH/sched_rt_period_us" "2000000"
-
-# Latency of the scheduler to assign task turns (ns)
-  write_value "$KERNEL_PATH/sched_latency_ns" "6000000"
+  
+# Balancing real-time responsiveness and CPU availability (us)
+  write_value "$KERNEL_PATH/sched_rt_runtime_us" "950000"
 
 # Minimum granularity for light duty (ns)
   write_value "$KERNEL_PATH/sched_min_granularity_ns" "750000"
@@ -123,7 +120,10 @@ done
 # Specifies the time window size (in nanoseconds) for CPU time sharing calculations.
   write_value "$KERNEL_PATH/sched_shares_window_ns" "5000000"
   
-# sets the average duration (time averaging period) in milliseconds for task load tracking calculation by the scheduler.
+# Scheduler boosting allows temporary priority increases for certain threads or processes to gain more CPU time.
+  write_value "$KERNEL_PATH/sched_boost" "3000000"
+  
+# sets the avg (time averaging period) in milliseconds for task load tracking calculation by the scheduler.
   write_value "$KERNEL_PATH/sched_time_avg_ms" "700"
   
 # gives an initial value of the task load based on a specified percentage
@@ -134,9 +134,6 @@ done
   
 # prevent excessive memory consumption by perf events
   write_value "$KERNEL_PATH/perf_event_mlock_kb" "570"
-
-# Balancing real-time responsiveness and CPU availability (us)
-  write_value "$KERNEL_PATH/sched_rt_runtime_us" "950000"
 
 # Upper and lower limits for CPU utility settings
   write_value "$KERNEL_PATH/sched_util_clamp_max" "768"
@@ -154,9 +151,6 @@ done
 
 # Limit max perf event processing time to this much CPU usage
   write_value "$KERNEL_PATH/perf_cpu_time_max_percent" "5"
-
-# Scheduler boosting allows temporary priority increases for certain threads or processes to gain more CPU time.
-  write_value "$KERNEL_PATH/sched_boost" "1"
   
 # Enable WALT for CPU utilization
   write_value "$KERNEL_PATH/sched_use_walt_cpu_util" "0"
